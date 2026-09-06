@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>LokalWerk - Categories</title><link rel="stylesheet" href="/css/style.css"></head>
+<body><script src="/js/auth.js"></script><script>requireAuth();</script>
+<div class="app"><aside class="sidebar"><div class="sidebar-logo"><div class="logo-box">L</div><h2>LokalWerk</h2></div>
+<nav><a href="/dashboard.html">Dashboard</a><a href="/products.html">Products</a><a class="active" href="/categories.html">Categories</a></nav><button class="logout-btn" onclick="logout()">Logout</button></aside>
+<main class="main-content"><header class="topbar"><div><h1>Categories</h1><p>Manage your product categories.</p></div><button class="btn-primary small-btn" onclick="openCategoryModal()">+ Add Category</button></header>
+<section id="categoriesContainer" class="category-grid"></section></main></div>
+<div id="categoryModal" class="modal hidden"><div class="modal-content"><div class="modal-header"><h2>Add Category</h2><button class="close-btn" onclick="closeCategoryModal()">×</button></div>
+<form id="categoryForm"><div class="form-group"><label>Name</label><input id="categoryName" required></div><div class="form-group"><label>Description</label><textarea id="categoryDescription"></textarea></div><div class="form-group"><label>Category Image</label><input id="categoryImage" type="file" accept="image/*" required></div><button class="btn-primary" type="submit">Save Category</button></form></div></div>
+<div id="categoryProductsModal" class="modal hidden"><div class="modal-content"><div class="modal-header"><h2 id="categoryProductsTitle">Products</h2><button class="close-btn" onclick="closeCategoryProducts()">×</button></div><div id="categoryProductsContainer" class="category-products"></div></div></div>
+<script src="/js/categories.js"></script></body></html>

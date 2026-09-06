@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>LokalWerk - Dashboard</title><link rel="stylesheet" href="/css/style.css"></head>
+<body><script src="/js/auth.js"></script><script>requireAuth();</script>
+<div class="app"><aside class="sidebar"><div class="sidebar-logo"><div class="logo-box">L</div><h2>LokalWerk</h2></div>
+<nav><a class="active" href="/dashboard.html">Dashboard</a><a href="/products.html">Products</a><a href="/categories.html">Categories</a></nav><button class="logout-btn" onclick="logout()">Logout</button></aside>
+<main class="main-content"><header class="topbar"><div><h1>Dashboard</h1><p>Welcome back to LokalWerk.</p></div></header>
+<section class="stats-grid"><div class="stat-card"><span>Products</span><strong id="productCount">0</strong></div><div class="stat-card"><span>Categories</span><strong id="categoryCount">0</strong></div></section>
+<section><div class="section-header"><h2>Recent Products</h2><a href="/products.html">View all</a></div><div id="recentProducts" class="product-grid"></div></section></main></div>
+<script src="/js/dashboard.js"></script></body></html>

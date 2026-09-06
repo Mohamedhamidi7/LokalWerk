@@ -29,16 +29,39 @@ public class SecurityConfig {
 
         http
                 .csrf(csrf -> csrf.disable())
+
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/", "/index.html", "/login.html", "/app.js", "/styles.css").permitAll()
-                        .requestMatchers("/login/**").permitAll()
-                        .requestMatchers("/error").permitAll()
+
+                        // Frontend public files
+                        .requestMatchers(
+                                "/",
+                                "/index.html",
+                                "/login.html",
+                                "/dashboard.html",
+                                "/products.html",
+                                "/categories.html",
+                                "/css/**",
+                                "/js/**",
+                                "/login",
+                                "/error"
+                        ).permitAll()
+
+                        // Protected API
+                        .requestMatchers("/admin/produkts/**").authenticated()
+                        .requestMatchers("/categories/**").authenticated()
+
+                        // Everything else
                         .anyRequest().authenticated()
                 )
-                .addFilterBefore( jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
+
+                .addFilterBefore(
+                        jwtAuthenticationFilter,
+                        UsernamePasswordAuthenticationFilter.class
+                );
 
         return http.build();
     }
+
     @Bean
     CommandLineRunner createTestUser(UserRepository userRepository,
                                      PasswordEncoder passwordEncoder) {
